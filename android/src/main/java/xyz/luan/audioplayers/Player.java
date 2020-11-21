@@ -1,6 +1,8 @@
 package xyz.luan.audioplayers;
 
 import android.content.Context;
+import android.media.MediaDataSource;
+
 abstract class Player {
 
     protected static boolean objectEquals(Object o1, Object o2) {
@@ -19,11 +21,13 @@ abstract class Player {
 
     abstract void setUrl(String url, boolean isLocal, Context context);
 
+    abstract void setDataSource(MediaDataSource mediaDataSource, Context context);
+
     abstract void setVolume(double volume);
 
     abstract int setRate(double rate);
 
-    abstract void configAttributes(boolean respectSilence, boolean stayAwake, Context context);
+    abstract void configAttributes(boolean respectSilence, boolean stayAwake, boolean duckAudio, Context context);
 
     abstract void setReleaseMode(ReleaseMode releaseMode);
 
